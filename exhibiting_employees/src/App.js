@@ -1,22 +1,25 @@
 import './App.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import EmployeeCard from './components/PageBody';
+import EmployeeCard from './components/EmployeeCard';
 import Search from './components/Search';
 import './styles/app.css';
 import API from './utils/API';
-import React from 'react';
+import React, { Component } from 'react';
 
-class App extends React.Component {
-  state = { result: {}, search:'' }
+export default class App extends Component {
+  state = { results: [], search:'' }
 
   componentDidMount = () => {
+    console.log(API.getEmployees())
     API.getEmployees()
       .then((records) => {
+        console.log(records)
         let data = records.data.results;
-        let employeeData = [records.data.results];
+        let employeeData = [];
         for (let i = 0; i < data.length; i++) {
           let card = {
+            id: i,
             name: data[i].name.first + " " + data[i].name.last,
             email: data[i].email,
             image: data[i].picture.medium,
@@ -24,28 +27,41 @@ class App extends React.Component {
             dob: data[i].dob.date,
           };
           employeeData.push(card);
+          console.log(card)
         }
-        console.log(employeeData);
-        this.setState({ employeeRecords: employeeData });
+        this.setState({ results: employeeData });
       });
   };
 
-  getEmployees = query => {}
   render() {
+ /*   {console.log(this.state.results.length)}
+    if(this.state.results.length = 0) {
+      return (
+        <Wrapper>
+        <Header />
+        <Search />
+        </Wrapper>
+      )
+    }
+    */
+    console.log(this.state.results)
     return (
+
       <div className='app'>
         <Wrapper>
           <Header />
           <Search />
-          {this.state.employeeData.map(employee => (
+          {this.state.results.map(e => (
             <EmployeeCard 
-            name={employee.name}
-            email={employee.email}/>
+            key={e.name + e.id}
+            name={e.name}
+            email={e.email}
+            image={e.image}
+            phone={e.phone}
+            dob={e.dob}/>
           ))}
         </Wrapper>
       </div>
     );  
   }
 }
-
-export default App;

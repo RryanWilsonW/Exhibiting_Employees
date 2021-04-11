@@ -1,40 +1,11 @@
-import React, { Component } from 'react';
-import API from '../utils/API';
+import React from 'react';
 import '../styles/card.css';
 
-class Employee extends Component {
-    state = {
-            search: '',
-            employees: [],
-            employeeFiltered: [],
-            sortPirameters: this.sortPirams,
-        };
-
-    get sortPirams () {
-        return {
-            name: '',
-            phone: '',
-            email: '',
-            dob: '',
-        };
-    }
-
-    componentDidMount() {
-        API.getEmployees()
-        .then((res) => 
-            this.state({
-                employees: res.data.results,
-                employeeFiltered: res.data.results
-            })
-        )
-        .catch((err) => console.log(err));
-    }
-}
 const EmployeeCard = (props) => {
     return (
         <div className='card'>
             <div className='imgContainer'>
-                <img alt={props.name} src={props.img} />
+                <img alt={props.name} src={props.image} />
             </div>
             <div className='content'>
                 <ul>
