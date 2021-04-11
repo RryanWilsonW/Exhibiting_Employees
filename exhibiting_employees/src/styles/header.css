@@ -1,0 +1,18 @@
+.header {
+    background-color: #420D63;
+    position: sticky;
+    height: 165px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.intro {
+    font-size: 24px;
+}
+
+

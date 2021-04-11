@@ -1,11 +1,13 @@
 import React from 'react';
+import '../styles/header.css'
 
 const Header = () => {
     return (
-        <header>
+        <div className='header'>
             <h1>Employee Directory</h1>
-            <p>Instructions for website.</p>
-        </header>
+            <p className='intro'>Click on carrots to filter by brackets 
+            or use the search box to narrow results.</p>
+        </div>
     );
 };
 
