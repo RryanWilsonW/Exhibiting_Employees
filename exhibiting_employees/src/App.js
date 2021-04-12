@@ -6,20 +6,36 @@ import Search from './components/Search';
 import './styles/app.css';
 import API from './utils/API';
 import React, { Component } from 'react';
+import { isCompositeComponent } from 'react-dom/test-utils';
 
 export default class App extends Component {
-  state = { results: [], search:'' }
+  state = { 
+    results: [], 
+    search:'', 
+    filteredResults: [],
+    order: ''  
+  };
+
+  handleInputChange= event => {
+    const results = this.state.results;
+    const UserInput = event.target.value;
+    const filterE = results.filter(f => f.name.toLowerCase().indexOf(UserInput.toLowerCase()) > -1
+    )
+    this.setState({
+      filteredResults: filterE
+    })
+  }
 
   componentDidMount = () => {
     console.log(API.getEmployees())
     API.getEmployees()
       .then((records) => {
-        console.log(records)
         let data = records.data.results;
         let employeeData = [];
         for (let i = 0; i < data.length; i++) {
           let card = {
             id: i,
+            firstName:data[i].name.first,
             name: data[i].name.first + " " + data[i].name.last,
             email: data[i].email,
             image: data[i].picture.medium,
@@ -27,31 +43,24 @@ export default class App extends Component {
             dob: data[i].dob.date,
           };
           employeeData.push(card);
-          console.log(card)
         }
         this.setState({ results: employeeData });
+        this.setState({ filteredResults: employeeData})
       });
   };
 
-  render() {
- /*   {console.log(this.state.results.length)}
-    if(this.state.results.length = 0) {
-      return (
-        <Wrapper>
-        <Header />
-        <Search />
-        </Wrapper>
-      )
-    }
-    */
-    console.log(this.state.results)
-    return (
 
+  render() {
+    return (
       <div className='app'>
         <Wrapper>
           <Header />
-          <Search />
-          {this.state.results.map(e => (
+          <Search 
+            handleSearch={this.handleSearch}
+            handleInputChange={this.handleInputChange}
+            result={this.state.results}
+          />
+          {this.state.filteredResults.map(e => (
             <EmployeeCard 
             key={e.name + e.id}
             name={e.name}

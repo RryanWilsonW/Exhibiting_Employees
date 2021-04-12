@@ -1,8 +1,25 @@
-.card {
+.empCards {
     border: lightgray solid 5px;
     border-radius: 45px;
-    width: 30%;
-    margin: 20px;
+    margin: 4%;
     background-color: #420D63;
     color: white;
+    width: 25%;
+    height: 300px;
+    float: left;
+}
+
+.imgContainer {
+    text-align: center;
+}
+
+img {
+    width: 40%;
+    margin: 20px;
+    border-radius: 90px;
+}
+
+li {
+    list-style: none;
+    text-align: left;
 }
