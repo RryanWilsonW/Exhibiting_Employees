@@ -15,11 +15,6 @@ const Search = (props) => {
                 className = ' inputBox '
                 placeholder="Search Employee Name"
                 />
-
-                <button 
-                className='search-button'
-                value= ''
-                onClick={props.handleSearch}>Search</button>
             </form>
        </div>
     )

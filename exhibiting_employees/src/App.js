@@ -6,7 +6,7 @@ import Search from './components/Search';
 import './styles/app.css';
 import API from './utils/API';
 import React, { Component } from 'react';
-import { isCompositeComponent } from 'react-dom/test-utils';
+import SortButton from './components/SortButtons';
 
 export default class App extends Component {
   state = { 
@@ -49,6 +49,24 @@ export default class App extends Component {
       });
   };
 
+  sortNameAcs = event => {
+    event.preventDefault();
+    const emp = (this.state.filteredResults);
+    const nameAcs = emp.sort((a,b) => (a.name > b.name) ? 1 : -1)
+    this.setState({
+      filteredResults: nameAcs
+    })
+  }
+
+  sortNameDec = event => {
+    event.preventDefault();
+    const emp = (this.state.filteredResults);
+    const nameDec = emp.sort((a,b) => (a.name > b.name) ? -1 : 1)
+    this.setState({
+      filteredResults: nameDec
+    })
+
+  }
 
   render() {
     return (
@@ -60,6 +78,9 @@ export default class App extends Component {
             handleInputChange={this.handleInputChange}
             result={this.state.results}
           />
+          <SortButton
+          sortNameAcs = {this.sortNameAcs} 
+          sortNameDec = {this.sortNameDec} />
           {this.state.filteredResults.map(e => (
             <EmployeeCard 
             key={e.name + e.id}
