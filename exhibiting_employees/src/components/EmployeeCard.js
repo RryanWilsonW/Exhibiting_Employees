@@ -19,7 +19,7 @@ const EmployeeCard = (props) => {
                         <strong>Email:</strong> {props.email}
                     </li>
                     <li>
-                        <strong>Age:</strong> {props.dob}
+                        <strong>Age:</strong> {props.age}
                     </li>
                 </ul>
 
