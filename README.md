@@ -3,8 +3,7 @@
   ## Table of Contents
   -[Description](#description)
   -[Questions](#questions)
-  -[License](#license)
-  -[Video](#video)
+  -[Screenshot](#screenshot)
   
   ## Description
   Project Description: Ehxibing Employees is a React based application designed to help a user find an employee based on name. The application uses a component based model to  orginize employee information such as age, name, email, and phone number. The employee card will also display a photo of the employee.
