@@ -38,7 +38,7 @@ export default class App extends Component {
             firstName:data[i].name.first,
             name: data[i].name.first + " " + data[i].name.last,
             email: data[i].email,
-            image: data[i].picture.medium,
+            image: data[i].picture.large,
             phone: data[i].cell,
             dob: data[i].dob.date,
           };

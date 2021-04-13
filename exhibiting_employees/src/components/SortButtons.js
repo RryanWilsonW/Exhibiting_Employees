@@ -1,12 +1,14 @@
 import React from 'react';
+import '../styles/sort.css'
 
 const SortButtons = (props) => {
     return (
         <div className='sortButton'>
-            <p>Sort:</p>
-            <button
+            <button 
+            className ='ascButton'
             onClick={props.sortNameAcs}>Name Acending</button>
             <button
+            className ='decButton'
             onClick={props.sortNameDec}>Name Decending</button>
 
 
