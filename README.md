@@ -13,6 +13,10 @@
   Usage Information: Exhibiting Employees has a input bar where a user can filter the employees based on user input. The website also has buttons to sort the employees alphabetically.
   
  Contribution Guidelines: If someone where going to contribute they would need to abide by standard contribution guidelines such as commiting often on a seperate branch. 
+ 
+ Technologies: This application uses a <a href ='https://randomuser.me'>Random User API</a> to create reandom users to display on the screen. 
+ 
+ <a href='https://rryanwilsonw.github.io/Exhibiting_Employees/'>Deployed Website</a>
   
   
   ## Questions
