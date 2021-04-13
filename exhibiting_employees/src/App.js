@@ -40,7 +40,8 @@ export default class App extends Component {
             email: data[i].email,
             image: data[i].picture.large,
             phone: data[i].cell,
-            dob: data[i].dob.date,
+            dob: data[i].dob.age
+
           };
           employeeData.push(card);
         }
