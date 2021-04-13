@@ -25,6 +25,6 @@
   LinkedIn: RryanWilsonW
 
   ## Screenshot
-  ![Screenshot of Application]()
+  ![Screenshot of Application](./exhibiting_employees/screenshot.png)
 
   
